@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportZone - Catálogo de Tenis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO Y NAVEGACIÓN -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=150&q=80" alt="Logotipo SportZone" class="logo">
+      <h1>SportZone</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="cart-btn" class="cart-btn" onclick="toggleCart()">
+      🛒 Carrito <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <div class="title-section">
+      <h1>Nuestros Tenis Deportivos</h1>
+      <p>Explora la selección de calzado deportivo de alta gama adaptado a tu disciplina favorita.</p>
+    </div>
+
+    <!-- FILTROS DE PRODUCTOS -->
+    <section class="filters-section">
+      <form id="filterForm">
+        <div class="filter-group">
+          <label for="category">Categoría deportiva:</label>
+          <select id="category" name="category">
+            <option value="todos">Todas las disciplinas</option>
+            <option value="padel">Pádel</option>
+            <option value="futbol">Fútbol</option>
+            <option value="running">Gym & Running</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="search">Buscar modelo:</label>
+          <input type="text" id="search" placeholder="Ej. Pro Runner, Predator...">
+        </div>
+      </form>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section class="catalog-section">
+      <div class="grid-3" id="productsGrid">
+        
+        <!-- Producto 1: Pádel -->
+        <article class="card product-card" data-category="padel">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80" alt="Tenis Smash Pro Pádel">
+          <h2>Tenis Smash Pro Pádel</h2>
+          <h3>Marca: Bullpadel</h3>
+          <p>Suela de espiga reforzada para máxima tracción y amortiguación GEL en el talón.</p>
+          <div class="price-row">
+            <span class="price">$2,499.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis Smash Pro Pádel', 2499)">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Producto 2: Fútbol -->
+        <article class="card product-card" data-category="futbol">
+          <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80" alt="Tenis SpeedStriker Fútbol">
+          <h2>Tenis SpeedStriker FG</h2>
+          <h3>Marca: Nike</h3>
+          <p>Tacos de precisión para pasto natural y tecnología de control de balón superior.</p>
+          <div class="price-row">
+            <span class="price">$2,899.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis SpeedStriker FG', 2899)">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Producto 3: Running -->
+        <article class="card product-card" data-category="running">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Tenis Air Runner Red">
+          <h2>Tenis Air Runner Red</h2>
+          <h3>Marca: Nike</h3>
+          <p>Malla ultra transpirable y suela reactiva ideal para carreras de larga distancia.</p>
+          <div class="price-row">
+            <span class="price">$1,999.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis Air Runner Red', 1999)">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Producto 4: Gym / Entrenamiento -->
+        <article class="card product-card" data-category="running">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80" alt="Tenis Ultramax Training">
+          <h2>Tenis Ultramax Training</h2>
+          <h3>Marca: Puma</h3>
+          <p>Base plana de alta estabilidad para levantamiento de pesas y rutinas de alta intensidad.</p>
+          <div class="price-row">
+            <span class="price">$2,199.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis Ultramax Training', 2199)">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Producto 5: Fútbol Rápid/Turf -->
+        <article class="card product-card" data-category="futbol">
+          <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=600&q=80" alt="Tenis Precision Turf">
+          <h2>Tenis Precision Turf</h2>
+          <h3>Marca: Adidas</h3>
+          <p>Diseño especial para césped sintético con plantilla de absorción de impactos.</p>
+          <div class="price-row">
+            <span class="price">$2,299.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis Precision Turf', 2299)">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <!-- Producto 6: Pádel Tour -->
+        <article class="card product-card" data-category="padel">
+          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80" alt="Tenis Court Pro Pádel">
+          <h2>Tenis Court Pro Pádel</h2>
+          <h3>Marca: Asics</h3>
+          <p>Protección perimetral anti-desgaste y máxima flexibilidad en giros explosivos.</p>
+          <div class="price-row">
+            <span class="price">$2,699.00 MXN</span>
+            <button class="btn-cart" onclick="addToCart('Tenis Court Pro Pádel', 2699)">Agregar al carrito</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PROMOCIONES -->
+    <section class="promo-section">
+      <h2>Promociones de Temporada</h2>
+      <article class="promo-card">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=800&q=80" alt="Tenis en Promoción">
+        <div class="promo-info">
+          <h3>20% de descuento en el segundo par</h3>
+          <p>Lévate cualquier par de tenis para fútbol o pádel y obtén 20% de rebaja directa en tu segundo par de entrenamiento.</p>
+          <a href="#productsGrid" class="btn-primary">Aprovechar oferta</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- PANEL LATERAL DEL CARRITO -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h2>Tu Carrito de Compras</h2>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart-msg">Tu carrito está vacío.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">$0.00 MXN</span>
+      </div>
+      <button class="btn-primary checkout-btn" onclick="checkout()">Finalizar Compra</button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>&copy; 2026 SportZone. Todos los derechos reservados.</p>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

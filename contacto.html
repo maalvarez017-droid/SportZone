@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportZone - Contacto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO Y NAVEGACIÓN -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=150&q=80" alt="Logotipo SportZone" class="logo">
+      <h1>SportZone</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="cart-btn" class="cart-btn" onclick="toggleCart()">
+      🛒 Carrito <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <div class="title-section">
+      <h1>Contáctanos</h1>
+      <p>¿Tienes preguntas sobre tallas, garantías o envíos de tu calzado deportivo? Escríbenos.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- FORMULARIO DE CONTACTO -->
+      <section class="form-container">
+        <h2>Déjanos tu mensaje</h2>
+        <form id="contactForm">
+          <div class="input-group">
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" required placeholder="Ej. Carlos Mendoza">
+          </div>
+
+          <div class="input-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" required placeholder="tu@email.com">
+          </div>
+
+          <div class="input-group">
+            <label for="subject">Motivo de contacto:</label>
+            <select id="subject" name="subject">
+              <option value="dudas">Asesoría en talla de tenis</option>
+              <option value="pedidos">Estado de mi pedido</option>
+              <option value="garantia">Garantía o Cambios</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" rows="5" required placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Enviar Consulta</button>
+        </form>
+      </section>
+
+      <!-- INFORMACIÓN DE LA TIENDA Y REDES -->
+      <div class="info-sidebar">
+        <section class="store-info">
+          <h2>Atención a Clientes</h2>
+          <p><strong>Teléfono:</strong> +52 (55) 8765-4321</p>
+          <p><strong>Correo:</strong> soporte@sportzone.com</p>
+          <p><strong>Horarios:</strong> Lunes a Sábado de 09:00 a 20:00 hrs</p>
+        </section>
+
+        <section class="social-links">
+          <h2>Nuestras Redes Sociales</h2>
+          <p>Síguenos para conocer nuevos lanzamientos de tenis y promociones exclusivas.</p>
+          <ul>
+            <li><a href="https://instagram.com" target="_blank">Instagram (@SportZoneTenis)</a></li>
+            <li><a href="https://facebook.com" target="_blank">Facebook (SportZone Oficial)</a></li>
+            <li><a href="https://tiktok.com" target="_blank">TikTok (@SportZoneFit)</a></li>
+          </ul>
+        </section>
+
+        <section class="location-section">
+          <h2>Ubicación de Tienda Física</h2>
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" alt="Mapa de ubicación SportZone" class="map-img">
+        </section>
+      </div>
+    </div>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq-section">
+      <h2>Preguntas Frecuentes (FAQ)</h2>
+      
+      <details>
+        <summary>¿Cómo elijo la talla adecuada para tenis de fútbol o pádel?</summary>
+        <p>Te recomendamos medir tu pie en centímetros. En calzado de fútbol o pádel, sugerimos dejar un espacio de 0.5 cm en la punta para evitar rozaduras durante los frenados bruscos.</p>
+      </details>
+
+      <details>
+        <summary>¿Tienen cambios de talla gratis?</summary>
+        <p>Sí, cuentas con 30 días para realizar cambios de talla sin costo adicional, siempre y cuando los tenis no presenten uso en exterior.</p>
+      </details>
+
+      <details>
+        <summary>¿Cuánto tardan los envíos?</summary>
+        <p>Los envíos dentro del área metropolitana entregan de 24 a 48 horas. Para el resto del país tarda entre 2 y 4 días hábiles.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <!-- PANEL LATERAL DEL CARRITO -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h2>Tu Carrito de Compras</h2>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart-msg">Tu carrito está vacío.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-price">$0.00 MXN</span>
+      </div>
+      <button class="btn-primary checkout-btn" onclick="checkout()">Finalizar Compra</button>
+    </div>
+  </div>
+  <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>&copy; 2026 SportZone. Todos los derechos reservados.</p>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
